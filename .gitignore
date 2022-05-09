@@ -1,0 +1,5 @@
+.idea/
+.docker/db
+vendor
+tmp
+web/.env
