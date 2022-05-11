@@ -1,9 +1,9 @@
 <?php
-namespace Application\Models;
+namespace application\models;
 
-use Application\components\DB\Database;
-use Application\components\mvc\Model\Model;
-use Application\Models\User;
+use application\components\DB\Database;
+use application\components\mvc\model\Model;
+
 use components\Helper;
 
 class Task extends Model
@@ -27,10 +27,10 @@ class Task extends Model
      * @param int|null $limit
      * @return array|null
      */
-    public static function findAll(?string $order = 'null', ?string $dir = 'ASC', ?int $offset = 1, ?int $limit = 3): ?array
+    public static function findAll(?string $order = 't.id', ?string $dir = 'ASC', ?int $offset = 1, ?int $limit = 3): ?array
     {
         $param = [
-            ':order'  => $order ? trim($order) : 'null',
+            ':order'  => $order ? trim($order) : 't.id',
             ':dir'    => $dir ? trim($dir) : 'ASC',
             ':offset' => $offset ? trim($offset) : 1,
             ':limit' => $limit ? trim($limit) : 1,
@@ -46,8 +46,7 @@ class Task extends Model
                   FROM task t
                   JOIN user u ON u.id = t.user_id
                  ORDER BY ". $param[':order'] . " ". $param[':dir']. "
-                 LIMIT ". $param[':limit'] . "
-                 OFFSET " . $param[':offset']-1;
+                 LIMIT ". $param[':offset'] ." , " .$param[':limit'];
 
         $result = (new Database())->queryValues($sql);
 

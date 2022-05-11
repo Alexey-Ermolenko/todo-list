@@ -3,6 +3,11 @@
         "vlucas/phpdotenv": "^2.3",
         "ext-json": "*",
         "ext-curl": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-pdo_sqlite": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
     }
 }

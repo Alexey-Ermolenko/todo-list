@@ -1,5 +1,5 @@
 <?php
-namespace Application\components\mvc\View;
+namespace application\components\mvc\View;
 
 class View
 {

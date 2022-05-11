@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\components\DB;
+namespace application\components\DB;
 
 use Exception;
 use PDO;

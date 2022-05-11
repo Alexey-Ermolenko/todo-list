@@ -1,6 +1,6 @@
 <?php
 
-namespace application\components\mvc\interfaces;
+namespace application\components\mvc\interface;
 
 /**
  * Интерфейс для реализации статусов записей.

@@ -1,8 +1,8 @@
 <?php
 
-use Application\Components\Mvc\interfaces\FilterInterface;
-use Application\Components\Mvc\View\View;
-use Application\Components\Mvc\Model\Model;
+use application\components\mvc\interface\FilterInterface;
+use application\components\mvc\view\View;
+use application\components\mvc\model\Model;
 
 class Controller implements FilterInterface
 {

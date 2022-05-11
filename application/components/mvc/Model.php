@@ -1,5 +1,5 @@
 <?php
-namespace Application\Components\Mvc\Model;
+namespace application\components\mvc\Model;
 
 class Model {
 

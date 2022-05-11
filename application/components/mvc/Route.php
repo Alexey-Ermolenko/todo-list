@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Components\Mvc\Router;
+namespace application\components\mvc\Router;
 
 use components\Helper;
 use ControllerMain;

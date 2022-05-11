@@ -1,8 +1,8 @@
 <?php
 
-use Application\Models\Task;
+use application\models\Task;
 use components\Helper;
-use Application\Models\User;
+use application\models\User;
 
 class ControllerMain extends Controller
 {
@@ -14,12 +14,11 @@ class ControllerMain extends Controller
     public function actionIndex($params = null)
     {
         $limit = 4;
-
-        $tasks = Task::findAll($params['order'], $params['sort'], $params['page'], $limit);
-
-        $page = $params['page'] ?? 1;
+        $page = isset($params['page']) && is_numeric($params['page']) ? $params['page'] : 1;
+        $calc_page = ($page - 1) * $limit;
 
         $total = Task::count();
+        $tasks = Task::findAll($params['order'], $params['sort'], $calc_page, $limit);
 
         $this->view->generate('main/index.php', [
             'tasks' => $tasks,

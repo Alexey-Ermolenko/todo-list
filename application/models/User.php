@@ -1,8 +1,8 @@
 <?php
-namespace Application\Models;
+namespace application\models;
 
-use Application\components\DB\Database;
-use Application\components\mvc\Model\Model;
+use application\components\DB\Database;
+use application\components\mvc\Model\Model;
 use Controller;
 
 class User extends Model {

@@ -4,12 +4,12 @@ if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable. Supports boolean, empty and null.
      *
-     * @param  string $key
+     * @param string $key
      * @param  mixed  $default
      *
      * @return mixed
      */
-    function env($key, $default = null)
+    function env(string $key, $default = null)
     {
         $value = getenv($key);
 
@@ -61,12 +61,12 @@ if (!function_exists('str_ends_with')) {
     /**
      * Determine if a given string ends with a given substring.
      *
-     * @param  string       $haystack
+     * @param string $haystack
      * @param  string|array $needles
      *
      * @return bool
      */
-    function str_ends_with($haystack, $needles)
+    function str_ends_with(string $haystack, $needles): bool
     {
         foreach ((array)$needles as $needle) {
             if ((string)$needle === substr($haystack, -strlen($needle))) {
@@ -82,12 +82,12 @@ if (!function_exists('str_starts_with')) {
     /**
      * Determine if a given string starts with a given substring.
      *
-     * @param  string       $haystack
+     * @param string $haystack
      * @param  string|array $needles
      *
      * @return bool
      */
-    function str_starts_with($haystack, $needles)
+    function str_starts_with(string $haystack, $needles): bool
     {
         foreach ((array)$needles as $needle) {
             if ($needle != '' && strpos($haystack, $needle) === 0) {
@@ -105,9 +105,9 @@ if (!function_exists('load_environment')) {
      *
      * @param string $env
      *
-     * @return \Dotenv\Dotenv
+     * @return \Dotenv\Dotenv|null
      */
-    function load_environment($env = '')
+    function load_environment(string $env = ''): ?\Dotenv\Dotenv
     {
         $file   = sprintf('%s/.env.%s', APPLICATION_DIR, $env);
         $file   = basename(file_exists($file) ? $file : sprintf('%s/.env', APPLICATION_DIR));

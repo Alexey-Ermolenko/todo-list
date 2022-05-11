@@ -1,5 +1,5 @@
 <?php
-use Application\components\DB\Database;
+use application\components\DB\Database;
 
 class ControllerAdmin extends Controller
 {
