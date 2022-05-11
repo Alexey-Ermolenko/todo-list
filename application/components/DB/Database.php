@@ -10,7 +10,13 @@ class Database
     private PDO $db;
 
     public function __construct() {
-        $db = new PDO(env('DB_DSN'), env('MYSQL_USER'), env('MYSQL_ROOT_PASSWORD'));
+        $db = new PDO('sqlite:data.sqlite', '', '', array(
+            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
+        ));
+
+
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->db = $db;
 
